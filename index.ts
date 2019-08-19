@@ -238,7 +238,7 @@ class E6API {
 		});
 	}
 
-	async listPosts(tags?: [string?, string?, string?, string?, string?, string?], limit?: number, page?: number, beforeId?: number, filterTags?: string[]) {
+	async listPosts(tags?: string[], limit?: number, page?: number, beforeId?: number, filterTags?: string[]): Promise<E621Post[]> {
 		const q: {
 			tags?: string;
 			limit?: number;

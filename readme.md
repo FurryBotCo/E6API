@@ -12,7 +12,7 @@ Example `login` function usage
 ```js
 const E6API = require("E6API");
 const e6 = new E6API({
-	userAgent: "E6API/1.0.2 (https://github.com/FurryBotCo/E6API)"
+	userAgent: "E6API/1.0.4 (https://github.com/FurryBotCo/E6API)"
 });
 
 e6.login("username", "password").then(res => console.log(res));
@@ -24,7 +24,7 @@ Example `getPostById` function usage, without fetching image
 ```js
 const E6API = require("E6API");
 const e6 = new E6API({
-	userAgent: "E6API/1.0.2 (https://github.com/FurryBotCo/E6API)"
+	userAgent: "E6API/1.0.4 (https://github.com/FurryBotCo/E6API)"
 });
 
 //             post id, fetch image
@@ -81,7 +81,7 @@ If `fetchImage` is set to `true`:
 ```js
 const E6API = require("E6API");
 const e6 = new E6API({
-	userAgent: "E6API/1.0.2 (https://github.com/FurryBotCo/E6API)"
+	userAgent: "E6API/1.0.4 (https://github.com/FurryBotCo/E6API)"
 });
 
 //             post id, fetch image
@@ -101,7 +101,7 @@ the `getImageByMD5` function follows the same principal
 ```js
 const E6API = require("E6API");
 const e6 = new E6API({
-	userAgent: "E6API/1.0.2 (https://github.com/FurryBotCo/E6API)"
+	userAgent: "E6API/1.0.4 (https://github.com/FurryBotCo/E6API)"
 });
 
 //               post md5,                         fetch image
@@ -121,7 +121,7 @@ To fetch more about the post, you must use one of `getPostById` or `getPostByMD5
 ```js
 const E6API = require("E6API");
 const e6 = new E6API({
-	userAgent: "E6API/1.0.2 (https://github.com/FurryBotCo/E6API)"
+	userAgent: "E6API/1.0.4 (https://github.com/FurryBotCo/E6API)"
 });
 
 //                 post id
@@ -147,7 +147,7 @@ md5 example
 ```js
 const E6API = require("E6API");
 const e6 = new E6API({
-	userAgent: "E6API/1.0.2 (https://github.com/FurryBotCo/E6API)"
+	userAgent: "E6API/1.0.4 (https://github.com/FurryBotCo/E6API)"
 });
 
 //                  post md5
@@ -179,7 +179,7 @@ parameters (none are required):
 ```js
 const E6API = require("E6API");
 const e6 = new E6API({
-	userAgent: "E6API/1.0.2 (https://github.com/FurryBotCo/E6API)"
+	userAgent: "E6API/1.0.4 (https://github.com/FurryBotCo/E6API)"
 });
 
 //           tags (max 6),           limit, page, beforeId, filterTags
@@ -191,7 +191,7 @@ this will return zero results, because all of them will have a tag that is filte
 ```js
 const E6API = require("E6API");
 const e6 = new E6API({
-	userAgent: "E6API/1.0.2 (https://github.com/FurryBotCo/E6API)"
+	userAgent: "E6API/1.0.4 (https://github.com/FurryBotCo/E6API)"
 });
 
 e6.listPosts(["gay"], null, null, null, ["male"]).then(res => console.log(res));
@@ -202,7 +202,7 @@ fetch deleted posts:
 ```js
 const E6API = require("E6API");
 const e6 = new E6API({
-	userAgent: "E6API/1.0.2 (https://github.com/FurryBotCo/E6API)"
+	userAgent: "E6API/1.0.4 (https://github.com/FurryBotCo/E6API)"
 });
 
 //              page, user id
@@ -222,7 +222,7 @@ get the most popular posts on e621
 ```js
 const E6API = require("E6API");
 const e6 = new E6API({
-	userAgent: "E6API/1.0.2 (https://github.com/FurryBotCo/E6API)"
+	userAgent: "E6API/1.0.4 (https://github.com/FurryBotCo/E6API)"
 });
 
 // valid values are "day", "week", and "month"
