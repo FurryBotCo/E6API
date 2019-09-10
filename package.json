@@ -1,6 +1,6 @@
 {
   "name": "e6api",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Wrapper for e621.net's api.",
   "main": "src/index.js",
   "types": "src/index.d.ts",
@@ -21,7 +21,7 @@
     "e6api"
   ],
   "author": "Donovan_DMC <dwddaniels262@gmail.com> (htttps://furry.cool)",
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/FurryBotCo/E6API/issues"
   },
