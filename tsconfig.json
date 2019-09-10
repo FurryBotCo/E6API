@@ -8,7 +8,7 @@
         "esModuleInterop": true,
         "moduleResolution": "node",
         "module": "commonjs",
-        "declaration": true,
+        "declaration": true
     },
     "include": [
         "**/*"
