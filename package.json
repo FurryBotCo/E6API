@@ -1,11 +1,12 @@
 {
   "name": "e6api",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "Wrapper for e621.net's api.",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "scripts": {
-    "prepare": "rimraf src && tslint -c tslint.json -p . *.ts && tsc"
+    "prepare": "rimraf src && tslint -c tslint.json -p . *.ts && tsc",
+    "publish": "npm publish"
   },
   "repository": {
     "type": "git",

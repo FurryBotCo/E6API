@@ -66,13 +66,6 @@ interface E621Post {
 	is_favorited: boolean;
 }
 
-interface E621Tag {
-	name: string;
-	id: number;
-	count: number;
-	type: 0 | 1 | 2 | 3 | 4 | 5;
-}
-
 class E6API {
 	apiKey: string;
 	userAgent: string;
@@ -283,9 +276,9 @@ class E6API {
 			if (res.statusCode === 404) return null;
 			if (res.statusCode !== 200) throw new APIError(`${res.statusCode} ${res.statusMessage}`, res.body.toString());
 
-			const b = JSON.parse(res.body.toString());
+			const b = JSON.parse(res.body.toString()).posts;
 
-			return filterTags && filterTags.length > 0 ? b.filter(p => !filterTags.some(t => p.tags.split(" ").includes(t))) : b;
+			return filterTags && filterTags.length > 0 ? b.filter((p: E621Post) => !filterTags.some(t => Object.values(p.tags).reduce((a, b) => a.concat(b)).includes(t))) : b;
 		}).catch(err => {
 			throw err;
 		});
@@ -371,7 +364,7 @@ class E6API {
 	async getPopularPosts(type: "day" | "week" | "month"): Promise<E621Post[]> {
 		return phin({
 			method: "GET",
-			url: `https://e621.net/explore/post/popular.json?scale=${type}`,
+			url: `https://e621.net/explore/posts/popular.json?scale=${type}`,
 			headers: {
 				"User-Agent": this.userAgent
 			}
@@ -379,7 +372,7 @@ class E6API {
 			if (res.statusCode === 404) return null;
 			if (res.statusCode !== 200) throw new APIError(`${res.statusCode} ${res.statusMessage}`, res.body.toString());
 
-			const b = JSON.parse(res.body.toString());
+			const b = JSON.parse(res.body.toString()).posts;
 			return b;
 		}).then(err => {
 			throw err;
