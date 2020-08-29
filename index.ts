@@ -169,10 +169,10 @@ export class E6API {
 			const b = JSON.parse(res.body.toString());
 
 			if (fetchImage) return {
-				image: await phin(b.file_url).then(i => i.body),
-				post: b
+				image: await phin(b.post.file_url).then(i => i.body),
+				post: b.post
 			};
-			else return b;
+			else return b.post;
 		}).catch(err => {
 			throw err;
 		});
@@ -235,7 +235,7 @@ export class E6API {
 			if (res.statusCode === 404) return null;
 			if (res.statusCode !== 200) throw new APIError(`${res.statusCode} ${res.statusMessage}`, res.body.toString());
 
-			return JSON.parse(res.body.toString());
+			return JSON.parse(res.body.toString()).post;
 		}).catch(err => {
 			throw err;
 		});
