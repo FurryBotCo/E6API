@@ -1,6 +1,6 @@
 {
   "name": "e6api",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Wrapper for e621.net's api.",
   "main": "src/index.js",
   "types": "src/index.d.ts",

@@ -4,7 +4,7 @@ import pkg from "./package.json";
 import * as fs from "fs";
 import qs from "querystring";
 
-class APIError extends Error {
+export class APIError extends Error {
 	constructor(err: string, message: string, response?: any) {
 		response ? super(`${err}, ${message}, response: ${util.inspect(response, { depth: 1 })}`) : super(`${err}, ${message}`);
 		this.name = "APIError";
@@ -13,7 +13,7 @@ class APIError extends Error {
 
 // a lot of changes and removes due to e621 api changes
 
-interface E621Post {
+export interface E621Post {
 	id: number;
 	created_at: string; // ISO timestamp
 	updated_at: string; // ISO timestamp
@@ -66,7 +66,7 @@ interface E621Post {
 	is_favorited: boolean;
 }
 
-class E6API {
+export class E6API {
 	apiKey: string;
 	userAgent: string;
 	constructor(options?: {
@@ -379,4 +379,4 @@ class E6API {
 	}*/
 }
 
-export = E6API;
+export default E6API;
