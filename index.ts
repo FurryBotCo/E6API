@@ -222,9 +222,9 @@ class E6API {
 		}).catch(err => {
 			throw err;
 		});
-	}
+	}*/
 
-	async getPostTagsByMD5(md5: string): Promise<{ md5: string; tags: E621Tag[] }> {
+	async getPostByMD5(md5: string): Promise<E621Post> {
 		return phin({
 			method: "GET",
 			url: `https://e621.net/posts.json?md5=${md5}`,
@@ -235,16 +235,11 @@ class E6API {
 			if (res.statusCode === 404) return null;
 			if (res.statusCode !== 200) throw new APIError(`${res.statusCode} ${res.statusMessage}`, res.body.toString());
 
-			const b = JSON.parse(res.body.toString());
-
-			return {
-				md5,
-				tags: b
-			};
+			return JSON.parse(res.body.toString());
 		}).catch(err => {
 			throw err;
 		});
-	}*/
+	}
 
 	async listPosts(tags?: string[], limit?: number, page?: number, beforeId?: number, filterTags?: string[]): Promise<E621Post[]> {
 		const q: {
@@ -257,7 +252,7 @@ class E6API {
 		if (filterTags) filterTags = filterTags.map(t => t.startsWith("-") ? t.slice(1, t.length) : t);
 		if (tags && filterTags) if (tags.some(t => filterTags.map(t => t.startsWith("-") ? t.slice(1, t.length).toLowerCase() : t.toLowerCase()).includes(t.toLowerCase()))) throw new TypeError("'tags' conatins a tag that is listed in 'filterTags'");
 		if (tags && tags.length > 0) {
-			if (tags.length > 6) throw new TypeError("you cannot use more than 6 tags");
+			if (tags.length > 40) throw new TypeError("you cannot use more than 40 tags");
 			else q.tags = tags.join(" ");
 
 			if (filterTags && tags.some(t => filterTags.map(t => t.startsWith("-") ? t.slice(1, t.length).toLowerCase() : t.toLowerCase()).includes(t.toLowerCase()))) throw new TypeError("'tags' conatins a tag that is listed in 'filterTags'");
