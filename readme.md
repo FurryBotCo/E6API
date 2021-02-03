@@ -1,3 +1,6 @@
+# Deprecated
+This module has been deprecated in favor of the [e621](https://npm.im/e621) module. This module will not be updated anymore.
+
 ## <center>E621 Api Module</center>
 
 Currently, this module only supports fetching posts/post tags, the e621 api isn't very well documented, and it's hard to test things like creating posts, deleting posts, flagging posts, etc without getting barred from doing so, or just tossing in junk code, and hoping for the best. Some of the methods are sort of implemented, but they're commented out. I know I've done them wrong, which is why they are commented out. They were left there if I ever want to come back and try to solve them.
